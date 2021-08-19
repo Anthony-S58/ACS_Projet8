@@ -26,7 +26,7 @@
 
     <div class="annonces">
         <div class="photo_annonce"><img src="../IMG/Gaming.jpg" alt=""></div>
-        <div class="infos">
+        <div class="descript">
             <h2>Manette Xbox</h2><br>
             <h2>60€</h2><br>
             <h2>Nevers</h2><br>

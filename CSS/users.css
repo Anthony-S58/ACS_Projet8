@@ -28,8 +28,21 @@
     color: white;
 }
 
+
+/* page mes_favoris */
 .fav img {
     margin: 30px;
     cursor: pointer;
 }
 
+/* page mon_profil */
+
+.infos {
+    height:80px;
+    width: 350px;
+    border: 1px solid red;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+}

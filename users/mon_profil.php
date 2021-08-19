@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../CSS/connect.css">
     <link rel="stylesheet" href="../CSS/users.css">
 
-    <title>BAD CORNER - Mes Annonces</title>
+    <title>BAD CORNER - Mes Favoris</title>
 </head>
 
 <body>
@@ -19,26 +19,35 @@
     </header>
 
     <div class="categories">
-        <h2>Mes Annonces</h2>
+        <h2>Mon Profil</h2>
     </div>
 
     <hr>
-
-    <div class="annonces">
-        <div class="photo_annonce"><img src="../IMG/Gaming.jpg" alt=""></div>
-        <div class="descript">
-            <h2>Manette Xbox</h2><br>
-            <h2>60€</h2><br>
-            <h2>Nevers</h2><br>
-        </div>
-        <div class="buttons">
-            <a href="modif_annonce.php"><button id="modif">Modifier</button></a>
-            <a href="delete_annonce.php"><button id="delete">Supprimer</button></a>
-        </div>
-
+    <div class="infos">
+    <h3>Pseudo : test</h3>
     </div>
-
     <hr>
+    <div class="infos">
+    <h3>Adresse mail : test@test.fr</h3>
+    </div>
+    <hr>
+    <div class="infos">
+    <h3>Image de profil :<img src="../IMG/profil.jpg" height="80px" width="80px"></h3>
+    </div>
+    <hr>
+    <div class="infos">
+    <h3>Mot de passe :</h3>
+    </div>
+    <hr>
+    <div class="infos">
+    <h3>Nombre d'annonces :</h3>
+    </div>
+    <hr>
+    <div class="infos">
+    <h3>Nombre de favoris :</h3>
+    </div>
+    <hr>
+    <br><br><br><br><br>
    
     <footer>
         <div class="menu">
@@ -51,5 +60,7 @@
             </h2>
         </div>
     </footer>
+
+    <script src="../JS/app.js"></script>
 </body>
 </html>

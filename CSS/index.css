@@ -24,7 +24,7 @@ a{
     color: #f2efe9;   
 }
 hr {
-    margin-top: 50px;
+    /* margin-top: 50px; */
     width: 90%;
     display: flex;
    align-self: center;
@@ -51,11 +51,13 @@ h1 {
     display: flex;
     justify-content: flex-start;
     margin: 15px;
-    padding-top: 15px;   
+    padding-top: 15px; 
+    margin-bottom: 50px;  
 }
 
 .bulles{
-    padding-top: 15px;   
+    padding-top: 15px;  
+    margin-bottom: 50px; 
     height: 150px;
     width: 100%;
     display: flex;
