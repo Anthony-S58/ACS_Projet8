@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/responsive.css">
     <title>BAD CORNER - Accueil</title>
 </head>
 <body>
@@ -13,7 +14,7 @@
     </header>
 
     <div class="categories">
-        <h2>CATEGORIES</h2>
+        <h2>Catégories</h2>
     </div>
     
    <div class="bulles">
@@ -42,7 +43,29 @@
        </div>
     </div>
    </div>
+   <hr>
+
+   <!-- Annonces -->
+
+   <div class="titre_annonces">      
+        <h2>Dernières Annonces</h2>
+    </div>
+
+    <div class="annonces">
+        <div class="cartes">
+
+            <div class="photo_annonce"><img src="IMG/Gaming.jpg" alt=""></div>
+            <div class="texte_annonce">
+                <h3>Manette Xbox</h3>
+                <h4>60€</h4>
+                <h5>Nevers</h5>
+            </div>
+
+        </div>
+        
     
+    </div>
+   
     <footer>
         <div class="menu">
             <h2>

@@ -16,8 +16,13 @@ body {
 }
 a{
     text-decoration: none;
-    color: #f2efe9;
-    
+    color: #f2efe9;   
+}
+hr {
+    margin-top: 50px;
+    width: 90%;
+    display: flex;
+   align-self: center;
 }
 
 /* HEADER */
@@ -40,10 +45,12 @@ h1 {
 .categories {
     display: flex;
     justify-content: flex-start;
-    margin: 15px;   
+    margin: 15px;
+    padding-top: 15px;   
 }
 
 .bulles{
+    padding-top: 15px;   
     height: 150px;
     width: 100%;
     display: flex;
@@ -52,19 +59,19 @@ h1 {
 }
 
 .bulle1{
-    background-image: url(IMG/Ordinateurs.jpg);
+    background-image: url(../IMG/Ordinateurs.jpg);
     background-size: cover;
 }
 .bulle2{
-    background-image: url(IMG/Smartphone.jpg); 
+    background-image: url(../IMG/Smartphone.jpg); 
     background-size: cover;
 }
 .bulle3{
-    background-image: url(IMG/Musique.jpg); 
+    background-image: url(../IMG/Musique.jpg); 
     background-size: cover;
 }
 .bulle4{
-    background-image: url(IMG/Gaming.jpg); 
+    background-image: url(../IMG/Gaming.jpg); 
     background-size: cover;
 }
 
@@ -121,6 +128,51 @@ h1 {
     -webkit-transform: translateY(50px);
     }
 
+
+    /* ANNONCES */
+
+    .titre_annonces {
+        display: flex;
+        justify-content: flex-start;
+        margin: 15px;
+        padding-top: 15px;   
+    }
+
+    .annonces{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        padding: 50px;
+        gap: 50px;
+    }
+    .cartes {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        flex-direction: column;
+    box-shadow: 3px 2px 8px 2px rgba(0, 0, 0, 0.5);
+
+    }
+    .photo_annonce{
+        width: 200px;
+        height: 150px;
+    }
+
+    .photo_annonce img{
+        width:200px;
+        height: 150px;
+        
+    }
+    .texte_annonce{
+        width: 150px;
+        height: 80px;    
+        background-color: #f2efe9;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 10px;
+    }
 
 /* FOOTER */
 footer .menu{

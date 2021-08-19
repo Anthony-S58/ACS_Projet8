@@ -1,0 +1,31 @@
+@media screen and (max-width: 700px) {
+
+
+    .bulle1, .bulle2, .bulle3, .bulle4 {
+        width: 120px;
+        height: 120px;
+    }
+    
+    }
+
+@media screen and (max-width: 500px) {
+
+
+    .bulle1, .bulle2, .bulle3, .bulle4 {
+        width: 90px;
+        height: 90px;
+    }
+    
+    }
+
+
+
+@media screen and (max-width: 400px) {
+
+
+.bulle1, .bulle2, .bulle3, .bulle4 {
+    width: 60px;
+    height: 60px;
+}
+
+}
