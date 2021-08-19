@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/index.css">
     <link rel="stylesheet" href="CSS/responsive.css">
     <title>BAD CORNER - Accueil</title>
 </head>
 <body>
     <header>
-        <h1>BAD CORNER</h1>
+        <a href="index.php"><h1>BAD CORNER</h1></a>
     </header>
 
     <div class="categories">
@@ -69,13 +69,14 @@
     <footer>
         <div class="menu">
             <h2>
-                <a href="register.php">Inscription</a>
+                <a href="connect.php">Connexion</a>
+                
             </h2>
             <h2>
-            <a href="connect.php">Connexion</a>
-
+                <a href="register.php">Inscription</a>
             </h2>
         </div>
+        <hr>
     </footer>
 </body>
 </html>
