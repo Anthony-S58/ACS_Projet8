@@ -25,7 +25,9 @@
 
         <input type="text" placeholder="Pseudo">
         <input type="text" placeholder="Adresse mail">
-        <input type="password" placeholder="Mot de passe"><br>
+        <input type="password" placeholder="Mot de passe">
+        <input type="password" placeholder="Confirmez votre mot de passe"><br>
+        <br>
         <input type="submit" value="S'inscrire" class="submit">
 
 

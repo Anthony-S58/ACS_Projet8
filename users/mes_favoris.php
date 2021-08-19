@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../CSS/connect.css">
     <link rel="stylesheet" href="../CSS/users.css">
 
-    <title>BAD CORNER - Mes Annonces</title>
+    <title>BAD CORNER - Mes Favoris</title>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
     </header>
 
     <div class="categories">
-        <h2>Mes Annonces</h2>
+        <h2>Mes Favoris</h2>
     </div>
 
     <hr>
@@ -31,9 +31,8 @@
             <h2>60€</h2><br>
             <h2>Nevers</h2><br>
         </div>
-        <div class="buttons">
-            <a href="modif_annonce.php"><button id="modif">Modifier</button></a>
-            <a href="delete_annonce.php"><button id="delete">Supprimer</button></a>
+        <div class="fav">
+            <img src="../IMG/star.png" height="50px" width="50px" id="star" value ="0" alt="">
         </div>
 
     </div>
@@ -51,5 +50,7 @@
             </h2>
         </div>
     </footer>
+
+    <script src="../JS/app.js"></script>
 </body>
 </html>

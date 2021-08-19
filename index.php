@@ -69,7 +69,9 @@
     <div class="divers">
     <a href="users/modif_annonce.php">modif annonce</a><br>
     <a href="users/add_annonce.php">ajout annonce</a><br>
-    <a href="users/mes_annonces.php">mes annonces</a>
+    <a href="users/mes_annonces.php">mes annonces</a><br>
+    <a href="users/mes_favoris.php">mes favoris</a>
+
 
     </div>
 
