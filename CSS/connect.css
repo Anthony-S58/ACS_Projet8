@@ -13,6 +13,23 @@ input {
     height: 40px;
 }
 
+select {
+    padding: 5px;
+    width: 200px;
+    height: 40px;
+}
+
+#catform{
+    display: flex;
+    text-align: center;
+    align-self: center;
+}
+textarea{
+    resize: none;
+    height: 160px;
+    width: 200px;
+}
+
 .submit{
     border-radius: 10px;
     background-color: #46237a;
@@ -25,4 +42,8 @@ input {
 .submit:hover{
     box-shadow: none;
     cursor: pointer;
+}
+
+link a{
+    background-color: black;
 }

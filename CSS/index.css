@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Sancreek&display=swap');
 
-
+/* a supprimer */
+    .divers {background-color: black;}
+/* fg */
 * {    
     left: 0;
     box-sizing: border-box;

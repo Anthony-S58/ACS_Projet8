@@ -65,7 +65,15 @@
         
     
     </div>
-   
+    <hr>
+    <div class="divers">
+    <a href="users/modif_annonce.php">modif annonce</a><br>
+    <a href="users/add_annonce.php">ajout annonce</a><br>
+    <a href="users/mes_annonces.php">mes annonces</a>
+
+    </div>
+
+   <hr>
     <footer>
         <div class="menu">
             <h2>

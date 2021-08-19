@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="CSS/index.css">
     <link rel="stylesheet" href="CSS/responsive.css">
     <link rel="stylesheet" href="CSS/connect.css">
-    <title>BAD CORNER - Inscription</title>
+    <title>BAD CORNER - Connexion</title>
 </head>
 
 <body>
@@ -35,11 +35,11 @@
     <footer>
         <div class="menu">
             <h2>
-                <a href="register.php">Inscription</a>
+                <a href="connect.php">Connexion</a>
+                
             </h2>
             <h2>
-            <a href="connect.php">Connexion</a>
-
+                <a href="register.php">Inscription</a>
             </h2>
         </div>
     </footer>
