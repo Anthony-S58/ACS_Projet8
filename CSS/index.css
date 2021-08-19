@@ -1,4 +1,4 @@
-/* Contient le css de la page index.php */
+/* Contient le css de la page index.php et view_annonce */
 
 
 @import url('https://fonts.googleapis.com/css2?family=Sancreek&display=swap');
@@ -196,4 +196,59 @@ footer .menu{
 }
 h2{
     font-size: 1.5em;
+}
+
+
+
+/* VIEW ANNONCE */
+
+
+#view_titre{
+    font-size: 2.5em;
+}
+
+.userfav_view{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+
+}
+.user_view{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.user_view img{
+    border-radius: 50%;
+}
+.fav_view{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.userinfo_view{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+    gap: 10px;
+}
+.description_view{
+    margin: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+#contacter{
+    margin-top: 50px;
+    font-size: 20px;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    box-shadow: 3px 2px 8px 2px rgba(0, 0, 0, 0.5);
+    background-color: #46237a;
+    color: white;
+    cursor: pointer;
+}
+#contacter:hover{
+    box-shadow: none;
 }

@@ -39,7 +39,8 @@
     </div>
 
     <hr>
-   
+    <a href="add_annonce.php"><button id="ajouter">Ajouter une annonce</button></a>
+<br><br><br><br><br>
     <footer>
         <div class="menu">
             <h2>
