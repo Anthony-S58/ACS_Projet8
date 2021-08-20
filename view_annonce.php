@@ -74,11 +74,10 @@
                 <input type="text" placeholder="Objet">
                 <textarea type="text" placeholder="Message" id="describ"></textarea><br>
 
-                <input type="submit" value="Envoyer" class="submit">
+                <input type="submit" value="Envoyer" id="contact_submit">
 
 
             </form>
-            <hr>
         </div>
 
     <a><button id="contacter">Contacter le vendeur</button></a>
