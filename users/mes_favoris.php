@@ -51,6 +51,6 @@
         </div>
     </footer>
 
-    <script src="../JS/app.js"></script>
+    <script src="../JS/fav.js"></script>
 </body>
 </html>

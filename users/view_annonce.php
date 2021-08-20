@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/index.css">
-    <link rel="stylesheet" href="CSS/responsive.css">
-    <link rel="stylesheet" href="CSS/connect.css">
-    <link rel="stylesheet" href="CSS/users.css">
+    <link rel="stylesheet" href="../CSS/index.css">
+    <link rel="stylesheet" href="../CSS/responsive.css">
+    <link rel="stylesheet" href="../CSS/connect.css">
+    <link rel="stylesheet" href="../CSS/users.css">
 
     <title>BAD CORNER - Mes Annonces</title>
 </head>
@@ -15,7 +15,7 @@
 <body>
 
     <header>
-        <a href="index.php"><h1>BAD CORNER</h1></a>
+        <a href="../index.php"><h1>BAD CORNER</h1></a>
     </header>
 
     <div class="categories">
@@ -24,7 +24,7 @@
     <hr>
 
     <div class="img_view">
-        <img src="IMG/manette.jpg" width="500px" height="300px" alt="">
+        <img src="../IMG/manette.jpg" width="500px" height="300px" alt="">
     </div>
     <div class="prix view">
         <h2>Prix<br>60€</h2>
@@ -32,12 +32,12 @@
     <hr>
     <div class="userfav_view">
         <div class="user_view">
-            <img src="IMG/profil.jpg" width="30px" height="30px" alt="">
+            <img src="../IMG/profil.jpg" width="30px" height="30px" alt="">
             <h3>TIMERS58</h3>
         </div>
         <div class="fav_view">
             <h3>Favoris</h3>
-            <img src="IMG/star.png" width="30px" id="star" height="30px" alt="">
+            <img src="../IMG/star.png" width="30px" id="star" height="30px" alt="">
         </div>
     </div>
     <hr>
@@ -97,6 +97,6 @@
     </footer>
 
 
-    <script src="JS/view.js"></script>
+    <script src="../JS/view.js"></script>
 </body>
 </html>

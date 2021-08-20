@@ -72,7 +72,7 @@
     <a href="users/mes_annonces.php">mes annonces</a><br>
     <a href="users/mes_favoris.php">mes favoris</a><br>
     <a href="users/mon_profil.php">mon profil</a><br>
-    <a href="view_annonce.php">view</a>
+    <a href="users/view_annonce.php">view</a>
 
 
 <br><br><br><br><br>

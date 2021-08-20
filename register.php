@@ -25,23 +25,24 @@
 
         <input type="text" placeholder="Pseudo">
         <input type="text" placeholder="Adresse mail">
-        <input type="password" placeholder="Mot de passe">
-        <input type="password" placeholder="Confirmez votre mot de passe"><br>
+        <input type="password" placeholder="Mot de passe" id="password">
+        <input type="password" placeholder="Confirmez votre mot de passe" id="check-password"><br>
+        <span id="message"></span><br>
         <br>
         <input type="submit" value="S'inscrire" class="submit">
 
 
     </form>
     
-   
+   <script src="JS/register.js"></script>
     <footer>
         <div class="menu">
             <h2>
-                <a href="connect.php">Connexion</a>
+                <a href="../connect.php">Connexion</a>
                 
             </h2>
             <h2>
-                <a href="register.php">Inscription</a>
+                <a href="../register.php">Inscription</a>
             </h2>
         </div>
     </footer>

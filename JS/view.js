@@ -3,12 +3,12 @@ let star = document.getElementById('star');
 star.addEventListener('click', function() {
 
 if (star==0) {
-    star.setAttribute("src","IMG/star.png");
+    star.setAttribute("src","../IMG/star.png");
 
 }
 
 else {
-    star.setAttribute("src","IMG/star2.png");
+    star.setAttribute("src","../IMG/star2.png");
 }
 
 });
