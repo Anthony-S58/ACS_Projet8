@@ -15,7 +15,7 @@
 <body>
 
     <header>
-        <a href="../index.php"><h1>BAD CORNER</h1></a>
+        <a href="index.php"><h1>BAD CORNER</h1></a>
     </header>
 
     <div class="categories">
@@ -37,7 +37,7 @@
         </div>
         <div class="fav_view">
             <h3>Favoris</h3>
-            <img src="IMG/star.png" width="30px" height="30px" alt="">
+            <img src="IMG/star.png" width="30px" id="star" height="30px" alt="">
         </div>
     </div>
     <hr>
@@ -65,7 +65,23 @@
     </div>
 
     <hr>
-    <a href="contact.php"><button id="contacter">Contacter le vendeur</button></a>
+    <div id="form_contact">
+        <form action="">
+
+
+                
+                <input type="text" placeholder="Adresse mail">
+                <input type="text" placeholder="Objet">
+                <textarea type="text" placeholder="Message" id="describ"></textarea><br>
+
+                <input type="submit" value="Envoyer" class="submit">
+
+
+            </form>
+            <hr>
+        </div>
+
+    <a><button id="contacter">Contacter le vendeur</button></a>
 <br><br><br><br><br>
 
    
@@ -80,5 +96,8 @@
             </h2>
         </div>
     </footer>
+
+
+    <script src="JS/view.js"></script>
 </body>
 </html>

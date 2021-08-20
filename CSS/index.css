@@ -238,6 +238,10 @@ h2{
     margin-left: 50px;
     margin-right: 50px;
 }
+
+#form_contact{
+    display: none;
+}
 #contacter{
     margin-top: 50px;
     font-size: 20px;
@@ -251,4 +255,6 @@ h2{
 }
 #contacter:hover{
     box-shadow: none;
+    cursor: pointer;
+
 }
