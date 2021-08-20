@@ -12,6 +12,25 @@
     margin: 0;   
 }
 
+body::-webkit-scrollbar {
+    width: 12px;
+    /* width of the entire scrollbar */
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: #46237a;
+    /* color of the tracking area */
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    /* color of the scroll thumb */
+    border-radius: 10px;
+    /* roundness of the scroll thumb */
+    border: 2px inset #f2efe9;
+    /* creates padding around scroll thumb */
+  }
+
 body {   
     background-color: #f2efe9;
     display: flex;
@@ -197,7 +216,21 @@ footer .menu{
 h2{
     font-size: 1.5em;
 }
+/* .fa-home{
+    font-size: 25px;
 
+}
+.fa-dollar-sign{
+    font-size: 25px;
+
+}
+.fa-star{
+    font-size: 25px;
+
+}
+.fa-user-alt{
+    font-size: 25px;
+} */
 
 
 /* VIEW ANNONCE */
