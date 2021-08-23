@@ -1,8 +1,8 @@
 <?php
 
-require_once('bddconnect.php');
+require_once('../bddconnect.php');
 
-$sql='SELECT * from annonces';
+$sql="SELECT * from annonces WHERE categorie='Gaming'";
 $query = $bdd->prepare($sql);
 $query->execute(); 
 $result = $query->fetchAll(PDO::FETCH_ASSOC); 
@@ -18,56 +18,31 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/index.css">
-    <link rel="stylesheet" href="CSS/responsive.css">
-    <title>BAD CORNER - Accueil</title>
+    <link rel="stylesheet" href="../CSS/index.css">
+    <link rel="stylesheet" href="../CSS/responsive.css">
+    <title>BAD CORNER - Catégorie Gaming</title>
 </head>
 <body>
     <header>
-        <a href="index.php"><h1>BAD CORNER</h1></a>
+        <a href="../index.php"><h1>BAD CORNER</h1></a>
     </header>
-
-    <div class="categories">
-        <h2>Catégories</h2>
-    </div>
     
    <div class="bulles">
-   <div class="bulle1"><div class="content">
-   
-           <div class="text">
-           <a href="categories/categ_ordinateurs.php">
-           Ordinateurs</a>
-           </div>
-       </div>
-    </div>
-       <div class="bulle2"><div class="content">
-           <div class="text">
-           <a href="categories/categ_smartphone.php">
-                Smartphone</a>
-           </div>
-       </div>
-    </div>
-       <div class="bulle3"><div class="content">
-           <div class="text">
-           <a href="categories/categ_musique.php">
-                Musique</a>
-           </div>
-       </div>
-    </div>
-       <div class="bulle4"><div class="content">
-           <div class="text">
-           <a href="categories/categ_gaming.php">
-                Gaming</a>
-           </div>
-       </div>
-    </div>
+        <div class="bulle4">
+            <div class="content">
+        
+                <div class="text">
+                    Gaming
+                </div>
+            </div>
+        </div>
    </div>
    <hr>
 
    <!-- Annonces -->
 
    <div class="titre_annonces">      
-        <h2>Dernières Annonces</h2>
+        <h2>Les annonces dans la catégorie : Gaming</h2>
     </div>
 
     <?php
@@ -76,7 +51,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     <div class="annonces">
         <div class="cartes">
 
-            <div class="photo_annonce"><a href="users/view_annonce.php?id=<?= $projet['id']?>"><img src="IMG/Gaming.jpg" alt=""></a></div>
+            <div class="photo_annonce"><a href="../users/view_annonce.php?id=<?= $projet['id']?>"><img src="../IMG/Gaming.jpg" alt=""></a></div>
             <div class="texte_annonce">
                 <h3><?= $projet['titre']?></h3>
                 <h4><?= $projet['prix']?> €</h4>
@@ -110,11 +85,11 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     <footer>
         <div class="menu">
             <h2>
-                <a href="connect.php">Connexion</a>
+                <a href="../connect.php">Connexion</a>
                 
             </h2>
             <h2>
-                <a href="register.php">Inscription</a>
+                <a href="../register.php">Inscription</a>
             </h2>
         </div>
         <hr>
