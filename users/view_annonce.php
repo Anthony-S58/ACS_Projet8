@@ -26,8 +26,8 @@
     <div class="img_view">
         <img src="../IMG/manette.jpg" width="500px" height="300px" alt="">
     </div>
-    <div class="prix view">
-        <h2>Prix<br>60€</h2>
+    <div class="prix_view">
+        <h2>Prix<br>60 €</h2>
     </div>
     <hr>
     <div class="userfav_view">

@@ -17,7 +17,7 @@
     </header>
 
     <div class="categories">
-        <h2>Inscription</h2>
+        <h2>Connexion</h2>
     </div>
 
         <form action="">

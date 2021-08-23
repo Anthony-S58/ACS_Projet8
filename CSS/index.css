@@ -239,6 +239,14 @@ h2{
 #view_titre{
     font-size: 2.5em;
 }
+/* .img_view img{
+    margin-top:20px;
+    box-shadow: 3px 2px 8px 2px rgba(0, 0, 0, 0.5);
+   
+}
+.prix_view{
+    margin:10px;
+} */
 
 .userfav_view{
     display: flex;
@@ -246,6 +254,7 @@ h2{
     margin: 10px;
 
 }
+
 .user_view{
     display: flex;
     gap: 10px;
