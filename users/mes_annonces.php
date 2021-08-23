@@ -1,3 +1,16 @@
+<?php
+
+require_once('../bddconnect.php');
+
+$sql='SELECT * from annonces';
+$query = $bdd->prepare($sql);
+$query->execute(); 
+$result = $query->fetchAll(PDO::FETCH_ASSOC); 
+
+// var_dump($result);
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -24,21 +37,28 @@
 
     <hr>
 
+    <?php
+        foreach ($result as $projet) {
+        ?>
+
     <div class="annonces">
         <div class="photo_annonce"><img src="../IMG/Gaming.jpg" alt=""></div>
         <div class="descript">
-            <h2>Manette Xbox</h2><br>
-            <h2>60€</h2><br>
-            <h2>Nevers</h2><br>
+            <h2><?= $projet['titre']?></h2><br>
+            <h2><?= $projet['prix']?> €</h2><br>
+            <h2><?= $projet['lieu']?></h2><br>
         </div>
         <div class="buttons">
-            <a href="modif_annonce.php"><button id="modif">Modifier</button></a>
-            <a href="delete_annonce.php"><button id="delete">Supprimer</button></a>
+            <a href="modif_annonce.php?id=<?= $projet['id']?>"><button onclick="return confirm('voulez-vous modifier?')" id="modif">Modifier</button></a>
+            <a href="delete.php?id=<?= $projet['id']?>"><button onclick="return confirm('voulez-vous supprimer?')" id="delete">Supprimer</button></a>
         </div>
-
+        
     </div>
 
     <hr>
+    <?php
+    }
+    ?>
     <a href="add_annonce.php"><button id="ajouter">Ajouter une annonce</button></a>
 <br><br><br><br><br>
     <footer>

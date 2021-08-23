@@ -1,3 +1,17 @@
+<?php
+
+require_once('bddconnect.php');
+
+$sql='SELECT * from annonces';
+$query = $bdd->prepare($sql);
+$query->execute(); 
+$result = $query->fetchAll(PDO::FETCH_ASSOC); 
+
+// var_dump($result);
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -65,6 +79,29 @@
         
     
     </div>
+    <hr>
+    <?php
+        foreach ($result as $projet) {
+        ?>
+    <div class="annonces">
+        <div class="cartes">
+
+            <div class="photo_annonce"><a href="users/view_annonce.php?id=<?= $projet['id']?>"><img src="IMG/Gaming.jpg" alt=""></a></div>
+            <div class="texte_annonce">
+                <h3><?= $projet['titre']?></h3>
+                <h4><?= $projet['prix']?> €</h4>
+                <h5><?= $projet['lieu']?></h5>
+            </div>
+
+        </div>
+        
+    
+    </div>
+
+    <?php
+    }
+    ?>
+
     <hr>
     <div class="divers">
     <a href="users/modif_annonce.php">modif annonce</a><br>
