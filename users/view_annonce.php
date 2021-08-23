@@ -2,10 +2,6 @@
 
 require_once('../bddconnect.php');
 
-// $sql='SELECT * from annonces';
-
-
-// var_dump($result);
 ?>
 
 

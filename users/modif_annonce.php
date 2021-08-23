@@ -1,3 +1,83 @@
+<?php
+
+require_once('../bddconnect.php');
+
+?>
+<?php
+
+$id=$_GET['id'];
+
+
+$sql = "SELECT * FROM annonces WHERE id = $id";
+$query = $bdd->prepare($sql);
+$query->execute(); 
+$result = $query->fetchAll(PDO::FETCH_ASSOC); 
+
+if ($_POST) {
+
+    if(isset($_POST['titre']) && !empty($_POST['titre'])
+    && isset($_POST['id_users']) && !empty($_POST['id_users'])
+    && isset($_POST['id_images']) && !empty($_POST['id_images'])
+    && isset($_POST['description']) && !empty($_POST['description'])
+    && isset($_POST['categorie']) && !empty($_POST['categorie'])
+    && isset($_POST['prix']) && !empty($_POST['prix'])
+    && isset($_POST['date']) && !empty($_POST['date'])
+    && isset($_POST['lieu']) && !empty($_POST['lieu'])) {
+
+        $id = strip_tags($_GET['id']);
+        $id_users= strip_tags($_POST ['id_users']);
+        $id_images= strip_tags($_POST ['id_images']);
+        $titre = strip_tags($_POST['titre']);
+        $description = strip_tags($_POST['description']);
+        $categorie = strip_tags($_POST['categorie']);
+        $prix = strip_tags($_POST['prix']);
+        $date = strip_tags($_POST['date']);
+        $lieu = strip_tags($_POST['lieu']);
+
+    // update
+    $sql = "UPDATE annonces SET id_users=:id_users, id_images=:id_images, titre=:titre, description=:description, categorie=:categorie, prix=:prix, date=:date, lieu=:lieu  WHERE id=id";
+
+        $query->bindValue(':id', $id, PDO::PARAM_INT);
+        $query->bindValue(':id_users', $id_users);
+        $query->bindValue(':id_images', $id_images);
+        $query->bindValue(':titre', $titre);
+        $query->bindValue(':description', $description);
+        $query->bindValue(':categorie', $categorie);
+        $query->bindValue(':prix', $prix);
+        $query->bindValue(':date', $date);
+        $query->bindValue(':lieu', $lieu);
+
+        $query->execute();
+
+    header("Location: mes_annonces.php");
+
+}else {
+    echo 'Veuillez remplir tous les champs';
+}}
+// récupération des données du projet
+if(isset($_GET['id'])&& !empty($_GET['id'])) {
+
+$id = strip_tags($_GET['id']);  //fonction qui permet d'enlever tous les tags html
+// var_dump($id); //verification que l'on récupère bien l'ID
+
+$sql = "SELECT * FROM annonces WHERE id=:id";  //requête préparée
+$query = $bdd->prepare($sql);
+$query->bindValue(":id", $id, PDO::PARAM_INT);
+$query->execute();
+
+$projet = $query->fetch();
+// on verifie si le projet existe
+if(!$projet){
+    header("Location: index.php");
+}
+}else {
+header("Location: index.php");
+}
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -20,24 +100,26 @@
         <h2>Modifier une annonce</h2>
     </div>
 
-    <form action="">
+    <form action="" method="POST">
 
+    <input type="text" name="id_users" placeholder="id_users" value="<?php echo $projet['id_users']?>" required><br>
+    <input type="text" name="id_images" placeholder="id_images" value="<?php echo $projet['id_images']?>" required><br>
 
-        <input type="text" placeholder="Titre"><br>
-        <select name="categories" id="catform">
+        <input type="text" name ="titre" placeholder="Titre" value="<?php echo $projet['titre']?>"><br>
+        <select name="categorie" id="catform">
             <option value=""> -- Catégories -- </option>
-            <option value="Ordinateurs">Ordinateurs</option>
-            <option value="Smartphone">Smartphone</option>
-            <option value="Musique">Musique</option>
-            <option value="Gaming">Gaming</option>
+            <option value="Ordinateurs" <?php if($projet['categorie'] === "Ordinateurs"){echo "selected";}?>>Ordinateurs</option>
+            <option value="Smartphone" <?php if($projet['categorie'] === "Smartphone"){echo "selected";}?>>Smartphone</option>
+            <option value="Musique" <?php if($projet['categorie'] === "Musique"){echo "selected";}?>>Musique</option>
+            <option value="Gaming" <?php if($projet['categorie'] === "Gaming"){echo "selected";}?>>Gaming</option>
         </select><br>
-        <input type="date" placeholder="Date"><br>
-        <input type="text" placeholder="Lieu"><br>
-        <input type="number" placeholder="Prix"><br>
-        <textarea type="text" placeholder="Description" id="describ"></textarea><br>
-        <input type="file" placeholder="Catégorie"><br><br>
+        <input type="date" name ="date" placeholder="Date" value="<?php echo $projet['date']?>"><br>
+        <input type="text" name="lieu" placeholder="Lieu" value="<?php echo $projet['lieu']?>"><br>
+        <input type="number" name ="prix" placeholder="Prix" value="<?php echo $projet['prix']?>"><br>
+        <textarea type="text" name ="description" placeholder="Description" id="describ"><?php echo $projet['description']?></textarea><br>
+        <!-- <input type="file" placeholder="Catégorie"><br><br> -->
 
-        <input type="submit" value="Modifier" class="submit">
+        <input type="submit" value="Modifier" class="submit" onclick="return confirm('Voulez-vous modifer votre annonce?')">
 
 
     </form>

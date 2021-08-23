@@ -49,8 +49,8 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
             <h2><?= $projet['lieu']?></h2><br>
         </div>
         <div class="buttons">
-            <a href="modif_annonce.php?id=<?= $projet['id']?>"><button onclick="return confirm('voulez-vous modifier?')" id="modif">Modifier</button></a>
-            <a href="delete.php?id=<?= $projet['id']?>"><button onclick="return confirm('voulez-vous supprimer?')" id="delete">Supprimer</button></a>
+            <a href="modif_annonce.php?id=<?= $projet['id']?>"><button onclick="return confirm('Voulez-vous modifier cette annonce?')" id="modif">Modifier</button></a>
+            <a href="delete.php?id=<?= $projet['id']?>"><button onclick="return confirm('Voulez-vous supprimer cette annonce?')" id="delete">Supprimer</button></a>
         </div>
         
     </div>
