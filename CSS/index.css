@@ -173,6 +173,7 @@ h1 {
     .annonces{
         display: flex;
         justify-content: space-around;
+        flex-direction: row;
         flex-wrap: wrap;
         padding: 50px;
         gap: 50px;

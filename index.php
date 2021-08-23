@@ -26,6 +26,15 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     <header>
         <a href="index.php"><h1>BAD CORNER</h1></a>
     </header>
+<br><br>
+    <div class="accueil">
+
+                <form method="GET">
+                    <input type="search" name = "s" placeholder="Rechercher une annonce">
+                    <button type="submit"><img src="IMG/loupe.png" width="30px" height="30px" alt=""></button>
+                </form>
+            
+            </div>
 
     <div class="categories">
         <h2>Catégories</h2>
@@ -72,7 +81,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
     <?php
         foreach ($result as $projet) {
-        ?>
+            ?>
     <div class="annonces">
         <div class="cartes">
 
