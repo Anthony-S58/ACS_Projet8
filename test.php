@@ -52,33 +52,31 @@
 
 
 
-<!-- <?php -->
-// require_once ('bddconnect.php');
-
+<?php 
+require_once ('bddconnect.php');
 
 // requête SQL pour demander $bdd->query
-// $reponse = $bdd->query('SELECT * from annonces');
+$reponse = $bdd->query('SELECT * from annonces');
 
 // afficher le résultat d'une requête ->fetch signifie va chercher
 
-// while ($donnees = $reponse->fetch()){
+while ($donnees = $reponse->fetch()){
 
-// ?>
-    <!-- <p>test d'affichage</p> -->
+?>
+    <p>test d'affichage</p> -->
 
-    <!-- <?php echo $donnees['titre']; ?><br> -->
-    <!-- <?php echo $donnees['description']; ?><br> -->
-    <!-- <?php echo $donnees['categorie']; ?><br> -->
-    <!-- <?php echo $donnees['prix']; ?><br> -->
-    <!-- <?php echo $donnees['date']; ?><br> -->
-    <!-- <?php echo $donnees['lieu']; ?><br> -->
+    <?php echo $donnees['titre']; ?><br> 
+    <?php echo $donnees['description']; ?><br> 
+    <?php echo $donnees['categorie']; ?><br> 
+    <?php echo $donnees['prix']; ?><br> 
+    <?php echo $donnees['date']; ?><br> 
+    <?php echo $donnees['lieu']; ?><br> 
     
-    <!-- <p>fin du test</p><br><br> -->
+    <p>fin du test</p><br><br>
 
-
-<!-- <?php -->
-// }
+ <?php
+ }
 
 // signifie qu'il faut cloturer la requête avant d'en faire une autre
-//  $reponse->closeCursor(); 
-// ?>
+ $reponse->closeCursor(); 
+ ?>
