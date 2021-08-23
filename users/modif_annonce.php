@@ -35,7 +35,9 @@ if ($_POST) {
         $lieu = strip_tags($_POST['lieu']);
 
     // update
-    $sql = "UPDATE annonces SET id_users=:id_users, id_images=:id_images, titre=:titre, description=:description, categorie=:categorie, prix=:prix, date=:date, lieu=:lieu  WHERE id=id";
+    $sql = "UPDATE annonces SET id_users=:id_users, id_images=:id_images, titre=:titre, description=:description, categorie=:categorie, prix=:prix, date=:date, lieu=:lieu WHERE id=:id";
+
+    $query = $bdd->prepare($sql);
 
         $query->bindValue(':id', $id, PDO::PARAM_INT);
         $query->bindValue(':id_users', $id_users);
@@ -102,9 +104,8 @@ header("Location: index.php");
 
     <form action="" method="POST">
 
-    <input type="text" name="id_users" placeholder="id_users" value="<?php echo $projet['id_users']?>" required><br>
-    <input type="text" name="id_images" placeholder="id_images" value="<?php echo $projet['id_images']?>" required><br>
-
+        <input type="text" name="id_users" placeholder="id_users" value="<?php echo $projet['id_users']?>" required><br>
+        <input type="text" name="id_images" placeholder="id_images" value="<?php echo $projet['id_images']?>" required><br>
         <input type="text" name ="titre" placeholder="Titre" value="<?php echo $projet['titre']?>"><br>
         <select name="categorie" id="catform">
             <option value=""> -- Catégories -- </option>
@@ -118,7 +119,6 @@ header("Location: index.php");
         <input type="number" name ="prix" placeholder="Prix" value="<?php echo $projet['prix']?>"><br>
         <textarea type="text" name ="description" placeholder="Description" id="describ"><?php echo $projet['description']?></textarea><br>
         <!-- <input type="file" placeholder="Catégorie"><br><br> -->
-
         <input type="submit" value="Modifier" class="submit" onclick="return confirm('Voulez-vous modifer votre annonce?')">
 
 
