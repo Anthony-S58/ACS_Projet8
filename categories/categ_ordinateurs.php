@@ -45,27 +45,27 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
         <h2>Les annonces dans la catégorie : Ordinateurs</h2>
     </div>
 
-    <?php
-        foreach ($result as $projet) {
-        ?>
     <div class="annonces">
-        <div class="cartes">
+        <?php
+            foreach ($result as $projet) {
+            ?>
+            <div class="cartes">
 
-            <div class="photo_annonce"><a href="../users/view_annonce.php?id=<?= $projet['id']?>"><img src="../IMG/Gaming.jpg" alt=""></a></div>
-            <div class="texte_annonce">
-                <h3><?= $projet['titre']?></h3>
-                <h4><?= $projet['prix']?> €</h4>
-                <h5><?= $projet['lieu']?></h5>
+                <div class="photo_annonce"><a href="../users/view_annonce.php?id=<?= $projet['id']?>"><img src="../IMG/Gaming.jpg" alt=""></a></div>
+                <div class="texte_annonce">
+                    <h3><?= $projet['titre']?></h3>
+                    <h4><?= $projet['prix']?> €</h4>
+                    <h5><?= $projet['lieu']?></h5>
+                </div>
+
             </div>
-
-        </div>
+            
         
-    
+            
+            <?php
+            }
+        ?>
     </div>
-
-    <?php
-    }
-    ?>
 
     <hr>
     <div class="divers">

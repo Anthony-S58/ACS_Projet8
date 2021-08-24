@@ -2,10 +2,10 @@
 
 require_once('bddconnect.php');
 
-$sql='SELECT * from annonces';
-$query = $bdd->prepare($sql);
-$query->execute(); 
-$result = $query->fetchAll(PDO::FETCH_ASSOC); 
+// $sql='SELECT * from annonces';
+// $query = $bdd->prepare($sql);
+// $query->execute(); 
+// $result = $query->fetchAll(PDO::FETCH_ASSOC); 
 
 // var_dump($result);
 ?>
@@ -28,10 +28,9 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     </header>
 <br><br>
     <div class="accueil">
-
                 <form method="GET">
-                    <input type="search" name = "s" placeholder="Rechercher une annonce">
-                    <button type="submit"><img src="IMG/loupe.png" width="30px" height="30px" alt=""></button>
+                    <input type="search" name = "s" placeholder="Rechercher..." style="border-radius: 5px;">
+                    <button type="submit"><img src="IMG/loupe.png" width="10px" height="10px" alt=""></button>
                 </form>
             
             </div>
@@ -78,28 +77,58 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
    <div class="titre_annonces">      
         <h2>Dernières Annonces</h2>
     </div>
-
-    <?php
-        foreach ($result as $projet) {
-            ?>
     <div class="annonces">
-        <div class="cartes">
+            <?php
+            
+            if (isset($_GET['s'])){
+                $s= htmlspecialchars($_GET['s']);
+                $annonces = $bdd->query('SELECT * FROM annonces Where titre LIKE "%'.$s.'%" ORDER BY id DESC');
+            
+            
+                foreach ($annonces as $projet) {
+                    ?>
 
-            <div class="photo_annonce"><a href="users/view_annonce.php?id=<?= $projet['id']?>"><img src="IMG/Gaming.jpg" alt=""></a></div>
-            <div class="texte_annonce">
-                <h3><?= $projet['titre']?></h3>
-                <h4><?= $projet['prix']?> €</h4>
-                <h5><?= $projet['lieu']?></h5>
+                <div class="cartes">
+
+                    <div class="photo_annonce"><a href="users/view_annonce.php?id=<?= $projet['id']?>"><img src="IMG/Gaming.jpg" alt=""></a></div>
+                    <div class="texte_annonce">
+                        <h3><?= $projet['titre']?></h3>
+                        <h4><?= $projet['prix']?> €</h4>
+                        <h5><?= $projet['lieu']?></h5>
+                    </div>
+
+                </div>
+                
+            
+                
+                <?php
+            }}else {
+                $sql='SELECT * from annonces';
+                $query = $bdd->prepare($sql);
+                $query->execute(); 
+                $result = $query->fetchAll(PDO::FETCH_ASSOC); 
+                
+                foreach ($result as $projet) {
+                    ?>
+                    <div class="annonces">
+                    </div>
+
+            <div class="cartes">
+
+                <div class="photo_annonce"><a href="users/view_annonce.php?id=<?= $projet['id']?>"><img src="IMG/Gaming.jpg" alt=""></a></div>
+                <div class="texte_annonce">
+                    <h3><?= $projet['titre']?></h3>
+                    <h4><?= $projet['prix']?> €</h4>
+                    <h5><?= $projet['lieu']?></h5>
+                </div>
+
             </div>
 
-        </div>
-        
-    
-    </div>
 
-    <?php
-    }
-    ?>
+        </div>
+        <?php
+            }}
+            ?>
 
     <hr>
     <div class="divers">
