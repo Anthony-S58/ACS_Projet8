@@ -9,7 +9,7 @@ if ($_POST) {
     $mail= strip_tags($_POST ['mail']);
     $mot_de_passe= strip_tags($_POST ['mot_de_passe']);
 
-    $check = $bdd->prepare('SELECT mail, mot_de_passe FROM users WHERE mail = ?');
+    $check = $bdd->prepare('SELECT mail FROM users WHERE mail = ?');
     $check->execute(array($mail));
     $data = $check->fetch();
     $row = $check->rowCount();

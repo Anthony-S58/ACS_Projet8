@@ -57,9 +57,16 @@
 .infos {
     height:80px;
     width: 350px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     padding: 10px;
+}
+
+#profil_board{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

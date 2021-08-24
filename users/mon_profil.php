@@ -21,7 +21,7 @@
     <div class="categories">
         <h2>Mon Profil</h2>
     </div>
-
+<div id="profil_board">
     <hr>
     <div class="infos">
     <h3>Pseudo : test</h3>
@@ -36,10 +36,6 @@
     </div>
     <hr>
     <div class="infos">
-    <h3>Mot de passe :</h3>
-    </div>
-    <hr>
-    <div class="infos">
     <h3>Nombre d'annonces :</h3>
     </div>
     <hr>
@@ -47,6 +43,8 @@
     <h3>Nombre de favoris :</h3>
     </div>
     <hr>
+    <button id="ajouter" style="background-color: red;">Déconnexion</button>
+    </div>
     <br><br><br><br><br>
    
     <footer>

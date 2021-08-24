@@ -29,8 +29,8 @@ require_once('bddconnect.php');
 <br><br>
     <div class="accueil">
                 <form method="GET">
-                    <input type="search" name = "s" placeholder="Rechercher..." style="border-radius: 5px;">
-                    <button type="submit"><img src="IMG/loupe.png" width="10px" height="10px" alt=""></button>
+                    <input type="search" name = "s" placeholder="Rechercher..." style="border-radius: 5px; background-color: #46237a; color:white;">
+                    <button type="submit" style="border-radius: 5px; background-color: #46237a;"><img src="IMG/loupe.png" width="20px" height="20px" alt=""></button>
                 </form>
             
             </div>
