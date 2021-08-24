@@ -1,3 +1,45 @@
+<?php
+
+require_once('bddconnect.php');
+
+
+
+if ($_POST) {
+    $nom_users = strip_tags($_POST['nom_users']);      
+    $mail= strip_tags($_POST ['mail']);
+    $mot_de_passe= strip_tags($_POST ['mot_de_passe']);
+
+    $check = $bdd->prepare('SELECT mail, mot_de_passe FROM users WHERE mail = ?');
+    $check->execute(array($mail));
+    $data = $check->fetch();
+    $row = $check->rowCount();
+    if($row == 0){
+
+        if(isset($_POST['nom_users']) && !empty($_POST['nom_users'])
+        && isset($_POST['mail']) && !empty($_POST['mail'])
+        && isset($_POST['mot_de_passe']) && !empty($_POST['mot_de_passe'])
+        && ($_POST['mot_de_passe'] === $_POST['check-password'])){
+        
+        $mot_de_passe = hash('sha256', $mot_de_passe);
+        
+        $sql = "INSERT INTO users(nom_users, mail, mot_de_passe) VALUES  (:nom_users,:mail, :mot_de_passe)";
+        $query = $bdd->prepare($sql);
+
+        $query->bindValue(':nom_users', $nom_users);
+        $query->bindValue(':mail', $mail);
+        $query->bindValue(':mot_de_passe', $mot_de_passe);
+
+        $query->execute();
+
+    }}else {header('location:register.php');
+    }
+ }
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -20,13 +62,13 @@
         <h2>Inscription</h2>
     </div>
 
-    <form action="">
+    <form action="" method="POST">
 
 
-        <input type="text" placeholder="Pseudo">
-        <input type="text" placeholder="Adresse mail">
-        <input type="password" placeholder="Mot de passe" id="password">
-        <input type="password" placeholder="Confirmez votre mot de passe" id="check-password"><br>
+        <input type="text" name="nom_users" placeholder="Pseudo">
+        <input type="text" name="mail" placeholder="Adresse mail">
+        <input type="password" name="mot_de_passe" placeholder="Mot de passe" id="password">
+        <input type="password" name="check-password" placeholder="Confirmez votre mot de passe" id="check-password"><br>
         <span id="message"></span><br>
         <br>
         <input type="submit" value="S'inscrire" class="submit">
