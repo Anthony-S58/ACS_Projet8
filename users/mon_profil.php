@@ -1,3 +1,11 @@
+<?php
+                session_start();
+               
+            ?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,6 +25,20 @@
     <header>
         <a href="../index.php"><h1>BAD CORNER</h1></a>
     </header>
+    <?php if(isset($_GET['deconnexion']))
+                { 
+                   if($_GET['deconnexion']==true)
+                   {  
+                      session_destroy();
+                      header("location:index.php");
+                   }
+                }
+                else if($_SESSION['nom_users'] !== ""){
+                    $user = $_SESSION['nom_users'];
+                    // afficher un message
+                    echo "<br>Bonjour $user, vous êtes connectés";
+                }
+    ?>
 
     <div class="categories">
         <h2>Mon Profil</h2>
@@ -43,9 +65,12 @@
     <h3>Nombre de favoris :</h3>
     </div>
     <hr>
-    <button id="ajouter" style="background-color: red;">Déconnexion</button>
+    <a href="../disconnect.php"><button id="ajouter" style="background-color: red;">Déconnexion</button></a>
     </div>
     <br><br><br><br><br>
+
+    <!-- tester si l'utilisateur est connecté -->
+    
    
     <footer>
     <div class="menu">
