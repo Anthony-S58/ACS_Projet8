@@ -2,12 +2,6 @@
 
 require_once('bddconnect.php');
 
-// $sql='SELECT * from annonces';
-// $query = $bdd->prepare($sql);
-// $query->execute(); 
-// $result = $query->fetchAll(PDO::FETCH_ASSOC); 
-
-// var_dump($result);
 ?>
 
 
@@ -28,48 +22,52 @@ require_once('bddconnect.php');
     </header>
 <br><br>
     <div class="accueil">
-                <form method="GET">
-                    <input type="search" name = "s" placeholder="Rechercher..." style="border-radius: 5px; background-color: #46237a; color:white;">
-                    <button type="submit" style="border-radius: 5px; background-color: #46237a;"><img src="IMG/loupe.png" width="20px" height="20px" alt=""></button>
-                </form>
+        <form method="GET">
+            <input type="search" name = "s" placeholder="Rechercher..." style="border-radius: 5px; background-color: #46237a; color:white;">
+            <button type="submit" style="border-radius: 5px; background-color: #46237a;"><img src="IMG/loupe.png" width="20px" height="20px" alt=""></button>
+        </form>
             
-            </div>
+    </div>
 
     <div class="categories">
         <h2>Catégories</h2>
     </div>
     
-   <div class="bulles">
-   <div class="bulle1"><div class="content">
-   
-           <div class="text">
-           <a href="categories/categ_ordinateurs.php">
-           Ordinateurs</a>
-           </div>
-       </div>
-    </div>
-       <div class="bulle2"><div class="content">
-           <div class="text">
-           <a href="categories/categ_smartphone.php">
+    <div class="bulles">
+        <div class="bulle1"><div class="content">
+            <div class="text">
+                <a href="categories/categ_ordinateurs.php">
+                Ordinateurs</a>
+            </div>
+        </div>
+        </div>
+
+        <div class="bulle2"><div class="content">
+            <div class="text">
+                <a href="categories/categ_smartphone.php">
                 Smartphone</a>
-           </div>
-       </div>
-    </div>
-       <div class="bulle3"><div class="content">
-           <div class="text">
-           <a href="categories/categ_musique.php">
+            </div>
+        </div>
+        </div>
+
+        <div class="bulle3"><div class="content">
+            <div class="text">
+                <a href="categories/categ_musique.php">
                 Musique</a>
-           </div>
-       </div>
-    </div>
-       <div class="bulle4"><div class="content">
-           <div class="text">
-           <a href="categories/categ_gaming.php">
+            </div>
+        </div>
+        </div>
+
+        <div class="bulle4"><div class="content">
+            <div class="text">
+                <a href="categories/categ_gaming.php">
                 Gaming</a>
-           </div>
-       </div>
-    </div>
+            </div>
+        </div>
+        </div>
+
    </div>
+
    <hr>
 
    <!-- Annonces -->
@@ -109,10 +107,8 @@ require_once('bddconnect.php');
                 $result = $query->fetchAll(PDO::FETCH_ASSOC); 
                 
                 foreach ($result as $projet) {
-                    ?>
-                    <div class="annonces">
-                    </div>
-
+                ?>
+                
             <div class="cartes">
 
                 <div class="photo_annonce"><a href="users/view_annonce.php?id=<?= $projet['id']?>"><img src="IMG/Gaming.jpg" alt=""></a></div>
@@ -125,10 +121,10 @@ require_once('bddconnect.php');
             </div>
 
 
-        </div>
-        <?php
+            <?php
             }}
             ?>
+            </div>
 
     <hr>
     <div class="divers">

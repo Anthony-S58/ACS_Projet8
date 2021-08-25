@@ -45,10 +45,10 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
         <h2>Les annonces dans la catégorie : Musique</h2>
     </div>
 
+    <div class="annonces">
     <?php
         foreach ($result as $projet) {
         ?>
-    <div class="annonces">
         <div class="cartes">
 
             <div class="photo_annonce"><a href="../users/view_annonce.php?id=<?= $projet['id']?>"><img src="../IMG/Gaming.jpg" alt=""></a></div>
@@ -61,11 +61,11 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
         </div>
         
     
-    </div>
-
-    <?php
+        
+        <?php
     }
     ?>
+    </div>
 
     <hr>
     <div class="divers">
