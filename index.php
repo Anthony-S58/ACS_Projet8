@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once('bddconnect.php');
 
 ?>
@@ -20,14 +19,7 @@ require_once('bddconnect.php');
     <header>
         <a href="index.php"><h1>BAD CORNER</h1></a>
     </header>
-    <?php
-    if ($_SESSION['nom_users'] !== ""){
-        $user = $_SESSION['nom_users'];
-        echo "<br>Bonjour $user, vous êtes connectés";
-    }else{
-        echo "";
-    }
-    ?>
+    
 <br><br>
     <div class="accueil">
         <form method="GET">

@@ -1,4 +1,7 @@
 <?php
+session_start();
+?>
+<?php
 
 require_once('../bddconnect.php');
 
@@ -82,17 +85,14 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     </div>
 
    <hr>
-    <footer>
-        <div class="menu">
-            <h2>
-                <a href="../connect.php">Connexion</a>
-                
-            </h2>
-            <h2>
-                <a href="../register.php">Inscription</a>
-            </h2>
-        </div>
-        <hr>
-    </footer>
+   <?php
+   if(isset($_SESSION['nom_users'])){
+      include '../footer2.php';
+      
+       
+    }else {
+      include '../footer1.php';
+    }
+    ?>
 </body>
 </html>

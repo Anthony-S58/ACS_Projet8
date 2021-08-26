@@ -8,6 +8,7 @@ if ($_POST) {
     $nom_users = strip_tags($_POST['nom_users']);      
     $mail= strip_tags($_POST ['mail']);
     $mot_de_passe= strip_tags($_POST ['mot_de_passe']);
+    $check= strip_tags($_POST ['check-password']);
 
     $check = $bdd->prepare('SELECT mail FROM users WHERE mail = ?');
     $check->execute(array($mail));

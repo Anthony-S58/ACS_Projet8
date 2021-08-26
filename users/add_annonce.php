@@ -3,16 +3,16 @@
 require_once('../bddconnect.php');
 
 if ($_POST) {
-    
-    if(isset($_POST['titre']) && !empty($_POST['titre'])
-    
+
+    if(isset($_POST['titre']) && !empty($_POST['titre'])  
     && isset($_POST['id_users']) && !empty($_POST['id_users'])
     && isset($_POST['id_images']) && !empty($_POST['id_images'])
     && isset($_POST['description']) && !empty($_POST['description'])
     && isset($_POST['categorie']) && !empty($_POST['categorie'])
     && isset($_POST['prix']) && !empty($_POST['prix'])
     && isset($_POST['date']) && !empty($_POST['date'])
-    && isset($_POST['lieu']) && !empty($_POST['lieu'])) {
+    && isset($_POST['lieu']) && !empty($_POST['lieu'])
+    && isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
         
         $id_users= strip_tags($_POST ['id_users']);
         $id_images= strip_tags($_POST ['id_images']);
@@ -22,6 +22,28 @@ if ($_POST) {
         $prix = strip_tags($_POST['prix']);
         $date = strip_tags($_POST['date']);
         $lieu = strip_tags($_POST['lieu']);
+        // on vérifie toujours l'extension et le type Mime
+        $allowed = [
+            "jpg" => "image/jpg",
+            "jpeg" => "image/jpeg",
+            "png" => "image/png"
+        ];
+
+        $filename = $_FILES['image']['name'];
+        $filetype = $_FILES['image']['type'];
+        $filesize = $_FILES['image']['size'];
+        
+        $extension = pathinfo($filename, PATHINFO_EXTENSION);
+        // on vérifie l'absence de l'extension dans les clés de $allowed ou l'absence du type Mime dans les valeurs
+        if(!array_key_exists($extension, $allowed) || !in_array($filetype, $allowed)){
+            // ici soit l'extention soit le type est incorrect
+            die("Erreur: format de fichier incorrect");
+
+        }
+        // ici le type est correct on limite à 1Mo
+        if($filesize > 1024*1024){
+            die("Fichier trop volumineux");
+        }
         
         $sql = "INSERT INTO annonces(id_users, id_images, titre, description, categorie, prix, date, lieu) VALUES (:id_users, :id_images, :titre, :description, :categorie, :prix, :date, :lieu)";
         $query = $bdd->prepare($sql);

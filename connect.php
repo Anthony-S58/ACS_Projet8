@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'bddconnect.php';
 ?>
 
@@ -24,7 +25,7 @@ require_once 'bddconnect.php';
     <div class="categories">
         <h2>Connexion</h2>
     </div>
-
+        
         <form action="verification.php" method="POST">
 
 
@@ -33,13 +34,6 @@ require_once 'bddconnect.php';
             <input type="password" name="mot_de_passe" placeholder="Mot de passe"><br>
             <input type="submit" value="Se connecter" class="submit">
 
-            <?php
-                if(isset($_GET['erreur'])){
-                    $err = $_GET['erreur'];
-                    if($err==1 || $err==2)
-                        echo "<p style='color:red'>Utilisateur ou mot de passe incorrect</p>";
-                }
-                ?>
         </form>
     
   
