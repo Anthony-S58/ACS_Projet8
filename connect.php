@@ -1,8 +1,6 @@
 <?php
-session_start();
-require_once 'bddconnect.php';
+include_once 'verification.php'
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -26,13 +24,16 @@ require_once 'bddconnect.php';
         <h2>Connexion</h2>
     </div>
         
-        <form action="verification.php" method="POST">
+        <form method="POST">
 
 
             
             <input type="text" name="nom_users" placeholder="Pseudo">
             <input type="password" name="mot_de_passe" placeholder="Mot de passe"><br>
-            <input type="submit" value="Se connecter" class="submit">
+            <input type="submit" value="Se connecter" name="submit" class="submit">
+            <div class="message2">
+                <?php if(isset($erreur)){echo $erreur;}?>
+            </div>
 
         </form>
     

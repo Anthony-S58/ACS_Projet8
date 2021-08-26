@@ -33,8 +33,8 @@
                       header("location:index.php");
                    }
                 }
-                else if($_SESSION['nom_users'] !== ""){
-                    $user = $_SESSION['nom_users'];
+                else if($_SESSION['admin'] !== ""){
+                    $user = $_SESSION['admin'];
                     // afficher un message
                     echo "<br>Bonjour $user, vous êtes connectés";
                 }

@@ -1,7 +1,13 @@
 <?php
+session_start();
 require_once('bddconnect.php');
+if(isset($_SESSION['admin'])){
+    $user = $_SESSION['admin'];
+}else{
 
-?>
+};
+
+    ?>
 
 
 
@@ -36,7 +42,7 @@ require_once('bddconnect.php');
     <div class="bulles">
         <div class="bulle1"><div class="content">
             <div class="text">
-                <a href="categories/categ_ordinateurs.php">
+                <a href="categ_ordinateurs.php">
                 Ordinateurs</a>
             </div>
         </div>
@@ -44,7 +50,7 @@ require_once('bddconnect.php');
 
         <div class="bulle2"><div class="content">
             <div class="text">
-                <a href="categories/categ_smartphone.php">
+                <a href="categ_smartphone.php">
                 Smartphone</a>
             </div>
         </div>
@@ -52,7 +58,7 @@ require_once('bddconnect.php');
 
         <div class="bulle3"><div class="content">
             <div class="text">
-                <a href="categories/categ_musique.php">
+                <a href="categ_musique.php">
                 Musique</a>
             </div>
         </div>
@@ -60,7 +66,7 @@ require_once('bddconnect.php');
 
         <div class="bulle4"><div class="content">
             <div class="text">
-                <a href="categories/categ_gaming.php">
+                <a href="categ_gaming.php">
                 Gaming</a>
             </div>
         </div>
@@ -143,13 +149,14 @@ require_once('bddconnect.php');
    <hr>
   
    <?php
-   if(isset($_SESSION['nom_users'])){
+   if(isset($_SESSION['admin'])){
       include 'footer2.php';
       
        
     }else {
       include 'footer1.php';
     }
+
     ?>
        
 </body>

@@ -3,9 +3,9 @@ session_start();
 ?>
 <?php
 
-require_once('../bddconnect.php');
+require_once('bddconnect.php');
 
-$sql="SELECT * from annonces WHERE categorie='Gaming'";
+$sql="SELECT * from annonces WHERE categorie='Musique'";
 $query = $bdd->prepare($sql);
 $query->execute(); 
 $result = $query->fetchAll(PDO::FETCH_ASSOC); 
@@ -21,21 +21,21 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/index.css">
-    <link rel="stylesheet" href="../CSS/responsive.css">
-    <title>BAD CORNER - Catégorie Gaming</title>
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/responsive.css">
+    <title>BAD CORNER - Catégorie Musique</title>
 </head>
 <body>
     <header>
-        <a href="../index.php"><h1>BAD CORNER</h1></a>
+        <a href="index.php"><h1>BAD CORNER</h1></a>
     </header>
     
    <div class="bulles">
-        <div class="bulle4">
+        <div class="bulle3">
             <div class="content">
         
                 <div class="text">
-                    Gaming
+                    Musique
                 </div>
             </div>
         </div>
@@ -45,7 +45,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
    <!-- Annonces -->
 
    <div class="titre_annonces">      
-        <h2>Les annonces dans la catégorie : Gaming</h2>
+        <h2>Les annonces dans la catégorie : Musique</h2>
     </div>
 
     <div class="annonces">
@@ -54,7 +54,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
         ?>
         <div class="cartes">
 
-            <div class="photo_annonce"><a href="../users/view_annonce.php?id=<?= $projet['id']?>"><img src="../IMG/Gaming.jpg" alt=""></a></div>
+            <div class="photo_annonce"><a href="users/view_annonce.php?id=<?= $projet['id']?>"><img src="IMG/Gaming.jpg" alt=""></a></div>
             <div class="texte_annonce">
                 <h3><?= $projet['titre']?></h3>
                 <h4><?= $projet['prix']?> €</h4>
@@ -86,12 +86,12 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
    <hr>
    <?php
-   if(isset($_SESSION['nom_users'])){
-      include '../footer2.php';
+   if(isset($_SESSION['admin'])){
+      include 'footer2.php';
       
        
     }else {
-      include '../footer1.php';
+      include 'footer1.php';
     }
     ?>
 </body>
