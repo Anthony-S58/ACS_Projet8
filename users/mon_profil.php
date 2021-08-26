@@ -1,5 +1,6 @@
 <?php
                 session_start();
+                require_once '../bddconnect.php';
                
             ?>
 
@@ -35,8 +36,12 @@
                 }
                 else if($_SESSION['admin'] !== ""){
                     $user = $_SESSION['admin'];
+                    $test="SELECT * FROM users WHERE id_users=$user";
+                    $query = $bdd->prepare($test);
+                    $query->execute(); 
+                    $result = $query->fetch(PDO::FETCH_ASSOC); 
                     // afficher un message
-                    echo "<br>Bonjour $user, vous êtes connectés";
+                    echo "<br>Bonjour ".$result['nom_users'].", vous êtes connectés";
                 }
     ?>
 
@@ -46,11 +51,11 @@
 <div id="profil_board">
     <hr>
     <div class="infos">
-    <h3>Pseudo : test</h3>
+    <h3>Pseudo : <?=$result['nom_users']?></h3>
     </div>
     <hr>
     <div class="infos">
-    <h3>Adresse mail : test@test.fr</h3>
+    <h3>Adresse mail : <?=$result['mail']?></h3>
     </div>
     <hr>
     <div class="infos">

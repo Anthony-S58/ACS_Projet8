@@ -106,7 +106,7 @@ if(isset($_SESSION['admin'])){
             
                 
                 <?php
-            }}else {
+            }}else{
                 $sql='SELECT * from annonces';
                 $query = $bdd->prepare($sql);
                 $query->execute(); 
