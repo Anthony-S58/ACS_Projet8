@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once('../bddconnect.php');
 
 $sql='SELECT * from annonces';

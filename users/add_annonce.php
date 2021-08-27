@@ -12,7 +12,7 @@ if ($_POST) {
     && isset($_POST['prix']) && !empty($_POST['prix'])
     && isset($_POST['date']) && !empty($_POST['date'])
     && isset($_POST['lieu']) && !empty($_POST['lieu'])
-    && isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
+    && isset($_POST['image']) && !empty($_POST['image'])) {
         
         $id_users= strip_tags($_POST ['id_users']);
         $id_images= strip_tags($_POST ['id_images']);
@@ -22,30 +22,9 @@ if ($_POST) {
         $prix = strip_tags($_POST['prix']);
         $date = strip_tags($_POST['date']);
         $lieu = strip_tags($_POST['lieu']);
-        // on vérifie toujours l'extension et le type Mime
-        $allowed = [
-            "jpg" => "image/jpg",
-            "jpeg" => "image/jpeg",
-            "png" => "image/png"
-        ];
 
-        $filename = $_FILES['image']['name'];
-        $filetype = $_FILES['image']['type'];
-        $filesize = $_FILES['image']['size'];
-        
-        $extension = pathinfo($filename, PATHINFO_EXTENSION);
-        // on vérifie l'absence de l'extension dans les clés de $allowed ou l'absence du type Mime dans les valeurs
-        if(!array_key_exists($extension, $allowed) || !in_array($filetype, $allowed)){
-            // ici soit l'extention soit le type est incorrect
-            die("Erreur: format de fichier incorrect");
 
-        }
-        // ici le type est correct on limite à 1Mo
-        if($filesize > 1024*1024){
-            die("Fichier trop volumineux");
-        }
-        
-        $sql = "INSERT INTO annonces(id_users, id_images, titre, description, categorie, prix, date, lieu) VALUES (:id_users, :id_images, :titre, :description, :categorie, :prix, :date, :lieu)";
+        $sql = "INSERT INTO annonces(id_users, id_images, titre, description, categorie, prix, date, lieu, image) VALUES (:id_users, :id_images, :titre, :description, :categorie, :prix, :date, :lieu, :image)";
         $query = $bdd->prepare($sql);
         
         $query->bindValue(':id_users', $id_users);
@@ -56,6 +35,8 @@ if ($_POST) {
         $query->bindValue(':prix', $prix);
         $query->bindValue(':date', $date);
         $query->bindValue(':lieu', $lieu);
+        $query->bindValue(':image', $image);
+
         
         $query->execute();
         
@@ -87,30 +68,30 @@ if ($_POST) {
             <h2>Ajouter une annonce</h2>
         </div>
         
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
             
             <input type="text" name="id_users" placeholder="id_users" required><br>
-    <input type="text" name="id_images" placeholder="id_images" required><br>
-    
-    <input type="text" name="titre" placeholder="Titre" required><br>
-    <textarea type="text" name="description" placeholder="Description" id="describ" required></textarea><br>
-    <select name="categorie" id="catform" required>
-        <option value=""> -- Catégories -- </option>
-        <option value="Ordinateurs">Ordinateurs</option>
-        <option value="Smartphone">Smartphone</option>
-        <option value="Musique">Musique</option>
-        <option value="Gaming">Gaming</option>
-    </select><br>
-    <input type="number" name="prix" placeholder="Prix" required><br>
-    <input type="date" name="date" placeholder="Date" required><br>
-    <input type="text" name="lieu" placeholder="Lieu" required><br>
-    
-        <input type="file" name="file" placeholder="file"><br><br>
-        
-        <input type="submit" name="submit"value="Ajouter" class="submit">
-    
-    
-</form>
+            <input type="text" name="id_images" placeholder="id_images" required><br>
+            
+            <input type="text" name="titre" placeholder="Titre" required><br>
+            <textarea type="text" name="description" placeholder="Description" id="describ" required></textarea><br>
+            <select name="categorie" id="catform" required>
+                <option value=""> -- Catégories -- </option>
+                <option value="Ordinateurs">Ordinateurs</option>
+                <option value="Smartphone">Smartphone</option>
+                <option value="Musique">Musique</option>
+                <option value="Gaming">Gaming</option>
+            </select><br>
+            <input type="number" name="prix" placeholder="Prix" required><br>
+            <input type="date" name="date" placeholder="Date" required><br>
+            <input type="text" name="lieu" placeholder="Lieu" required><br>
+            
+            <input type="file" name="image" placeholder="file"><br><br>
+                
+            <input type="submit" name="submit"value="Ajouter" class="submit">
+            
+            
+        </form>
 
 <br>
 <hr>

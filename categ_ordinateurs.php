@@ -54,7 +54,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
             ?>
             <div class="cartes">
 
-                <div class="photo_annonce"><a href="users/view_annonce.php?id=<?= $projet['id']?>"><img src="IMG/Gaming.jpg" alt=""></a></div>
+                <div class="photo_annonce"><a href="view_annonce.php?id=<?= $projet['id']?>"><img src="IMG/Gaming.jpg" alt=""></a></div>
                 <div class="texte_annonce">
                     <h3><?= $projet['titre']?></h3>
                     <h4><?= $projet['prix']?> €</h4>
