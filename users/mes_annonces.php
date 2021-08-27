@@ -42,7 +42,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
         ?>
 
     <div class="annonces">
-        <div class="photo_annonce"><img src="../IMG/Gaming.jpg" alt=""></div>
+        <div class="photo_annonce"><img src="../uploads/<?=$projet['image']?>" alt=""></div>
         <div class="descript">
             <h2><?= $projet['titre']?></h2><br>
             <h2><?= $projet['prix']?> €</h2><br>

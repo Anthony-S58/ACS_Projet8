@@ -12,8 +12,13 @@ if ($_POST) {
     && isset($_POST['prix']) && !empty($_POST['prix'])
     && isset($_POST['date']) && !empty($_POST['date'])
     && isset($_POST['lieu']) && !empty($_POST['lieu'])
-    && isset($_POST['image']) && !empty($_POST['image'])) {
-        
+    && isset($_FILES['image']) && !empty($_FILES['image'])) {
+        if(isset($_FILES['image'])){
+            $tmpName = $_FILES['image']['tmp_name'];
+            $name = $_FILES['image']['name'];
+
+            move_uploaded_file($tmpName, '../uploads/'.$name);
+        }
         $id_users= strip_tags($_POST ['id_users']);
         $id_images= strip_tags($_POST ['id_images']);
         $titre = strip_tags($_POST['titre']);
@@ -22,6 +27,7 @@ if ($_POST) {
         $prix = strip_tags($_POST['prix']);
         $date = strip_tags($_POST['date']);
         $lieu = strip_tags($_POST['lieu']);
+        $image = strip_tags($_FILES['image']['name']);
 
 
         $sql = "INSERT INTO annonces(id_users, id_images, titre, description, categorie, prix, date, lieu, image) VALUES (:id_users, :id_images, :titre, :description, :categorie, :prix, :date, :lieu, :image)";
@@ -36,9 +42,11 @@ if ($_POST) {
         $query->bindValue(':date', $date);
         $query->bindValue(':lieu', $lieu);
         $query->bindValue(':image', $image);
+        $photo=$image;
 
         
         $query->execute();
+        header('Location: mes_annonces.php');
         
     }
     
