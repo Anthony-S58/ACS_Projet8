@@ -1,12 +1,16 @@
 <?php
-
+session_start();
 require_once('../bddconnect.php');
+if(isset($_SESSION['admin'])){
+    $user = $_SESSION['admin'];
+}else{
+
+};
 
 if ($_POST) {
 
     if(isset($_POST['titre']) && !empty($_POST['titre'])  
     && isset($_POST['id_users']) && !empty($_POST['id_users'])
-    && isset($_POST['id_images']) && !empty($_POST['id_images'])
     && isset($_POST['description']) && !empty($_POST['description'])
     && isset($_POST['categorie']) && !empty($_POST['categorie'])
     && isset($_POST['prix']) && !empty($_POST['prix'])
@@ -20,7 +24,6 @@ if ($_POST) {
             move_uploaded_file($tmpName, '../uploads/'.$name);
         }
         $id_users= strip_tags($_POST ['id_users']);
-        $id_images= strip_tags($_POST ['id_images']);
         $titre = strip_tags($_POST['titre']);
         $description = strip_tags($_POST['description']);
         $categorie = strip_tags($_POST['categorie']);
@@ -30,11 +33,10 @@ if ($_POST) {
         $image = strip_tags($_FILES['image']['name']);
 
 
-        $sql = "INSERT INTO annonces(id_users, id_images, titre, description, categorie, prix, date, lieu, image) VALUES (:id_users, :id_images, :titre, :description, :categorie, :prix, :date, :lieu, :image)";
+        $sql = "INSERT INTO annonces(id_users, titre, description, categorie, prix, date, lieu, image) VALUES (:id_users, :titre, :description, :categorie, :prix, :date, :lieu, :image)";
         $query = $bdd->prepare($sql);
         
         $query->bindValue(':id_users', $id_users);
-        $query->bindValue(':id_images', $id_images);
         $query->bindValue(':titre', $titre);
         $query->bindValue(':description', $description);
         $query->bindValue(':categorie', $categorie);
@@ -75,11 +77,8 @@ if ($_POST) {
         <div class="categories">
             <h2>Ajouter une annonce</h2>
         </div>
-        
         <form action="" method="POST" enctype="multipart/form-data">
-            
-            <input type="text" name="id_users" placeholder="id_users" required><br>
-            <input type="text" name="id_images" placeholder="id_images" required><br>
+            <input type="hidden" name="id_users" placeholder="id_users" value="<?=$user?>"><br>
             
             <input type="text" name="titre" placeholder="Titre" required><br>
             <textarea type="text" name="description" placeholder="Description" id="describ" required></textarea><br>

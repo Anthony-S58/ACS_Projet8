@@ -1,6 +1,12 @@
 <?php
 session_start();
 require_once('../bddconnect.php');
+if(isset($_SESSION['admin'])){
+    $user = $_SESSION['admin'];
+}else{
+
+};
+
 
 $sql='SELECT * from annonces';
 $query = $bdd->prepare($sql);
@@ -41,7 +47,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
         foreach ($result as $projet) {
         ?>
 
-    <div class="annonces">
+    <div class="annonces_annonces">
         <div class="photo_annonce"><img src="../uploads/<?=$projet['image']?>" alt=""></div>
         <div class="descript">
             <h2><?= $projet['titre']?></h2><br>

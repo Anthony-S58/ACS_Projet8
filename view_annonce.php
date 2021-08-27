@@ -54,7 +54,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
 
     <div class="img_view">
-        <img src="IMG/manette.jpg" width="500px" height="300px" alt="">
+        <img src="uploads/<?=$projet['image']?>" width="auto" height="300px" alt="">
     </div>
     <div class="prix_view">
         <h2>Prix<br><?= $projet['prix']?> €</h2>

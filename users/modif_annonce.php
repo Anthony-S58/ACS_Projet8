@@ -17,7 +17,6 @@ if ($_POST) {
 
     if(isset($_POST['titre']) && !empty($_POST['titre'])
     && isset($_POST['id_users']) && !empty($_POST['id_users'])
-    && isset($_POST['id_images']) && !empty($_POST['id_images'])
     && isset($_POST['description']) && !empty($_POST['description'])
     && isset($_POST['categorie']) && !empty($_POST['categorie'])
     && isset($_POST['prix']) && !empty($_POST['prix'])
@@ -26,7 +25,6 @@ if ($_POST) {
 
         $id = strip_tags($_GET['id']);
         $id_users= strip_tags($_POST ['id_users']);
-        $id_images= strip_tags($_POST ['id_images']);
         $titre = strip_tags($_POST['titre']);
         $description = strip_tags($_POST['description']);
         $categorie = strip_tags($_POST['categorie']);
@@ -35,13 +33,12 @@ if ($_POST) {
         $lieu = strip_tags($_POST['lieu']);
 
     // update
-    $sql = "UPDATE annonces SET id_users=:id_users, id_images=:id_images, titre=:titre, description=:description, categorie=:categorie, prix=:prix, date=:date, lieu=:lieu WHERE id=:id";
+    $sql = "UPDATE annonces SET id_users=:id_users, titre=:titre, description=:description, categorie=:categorie, prix=:prix, date=:date, lieu=:lieu WHERE id=:id";
 
     $query = $bdd->prepare($sql);
 
         $query->bindValue(':id', $id, PDO::PARAM_INT);
         $query->bindValue(':id_users', $id_users);
-        $query->bindValue(':id_images', $id_images);
         $query->bindValue(':titre', $titre);
         $query->bindValue(':description', $description);
         $query->bindValue(':categorie', $categorie);
@@ -104,8 +101,8 @@ header("Location: index.php");
 
     <form action="" method="POST">
 
-        <input type="text" name="id_users" placeholder="id_users" value="<?php echo $projet['id_users']?>" required><br>
-        <input type="text" name="id_images" placeholder="id_images" value="<?php echo $projet['id_images']?>" required><br>
+        <input type="hidden" name="id_users" placeholder="id_users" value="<?php echo $projet['id_users']?>"><br>
+     
         <input type="text" name ="titre" placeholder="Titre" value="<?php echo $projet['titre']?>"><br>
         <select name="categorie" id="catform">
             <option value=""> -- Catégories -- </option>
