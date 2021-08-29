@@ -132,19 +132,7 @@ if(isset($_SESSION['admin'])){
             ?>
             </div>
 
-    <hr>
-    <div class="divers">
-    <a href="users/modif_annonce.php">modif annonce</a><br>
-    <a href="users/add_annonce.php">ajout annonce</a><br>
-    <a href="users/mes_annonces.php">mes annonces</a><br>
-    <a href="users/mes_favoris.php">mes favoris</a><br>
-    <a href="users/mon_profil.php">mon profil</a><br>
-    <a href="users/view_annonce.php">view</a>
-
-
-<br><br><br><br><br>
-
-    </div>
+   <br><br><br><br>
 
    <hr>
   

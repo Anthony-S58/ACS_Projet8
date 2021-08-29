@@ -62,7 +62,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     <hr>
     <div class="userfav_view">
         <div class="user_view">
-            <img src="IMG/profil.jpg" width="30px" height="30px" alt="">
+            <img src="IMG/pasdimage.png" width="30px" height="30px" alt="">
             <h3>TIMERS58</h3>
         </div>
         <div class="fav_view">
