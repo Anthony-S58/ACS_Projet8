@@ -2,6 +2,12 @@
 
 require_once('../bddconnect.php');
 
+if(isset($_SESSION['admin'])){
+    $user = $_SESSION['admin'];
+}else{
+
+};
+
 ?>
 <?php
 
@@ -21,7 +27,14 @@ if ($_POST) {
     && isset($_POST['categorie']) && !empty($_POST['categorie'])
     && isset($_POST['prix']) && !empty($_POST['prix'])
     && isset($_POST['date']) && !empty($_POST['date'])
-    && isset($_POST['lieu']) && !empty($_POST['lieu'])) {
+    && isset($_POST['lieu']) && !empty($_POST['lieu'])
+    && isset($_FILES['image']) && !empty($_FILES['image'])) {
+        if(isset($_FILES['image'])){
+            $tmpName = $_FILES['image']['tmp_name'];
+            $name = $_FILES['image']['name'];
+
+            move_uploaded_file($tmpName, '../uploads/'.$name);
+        }
 
         $id = strip_tags($_GET['id']);
         $id_users= strip_tags($_POST ['id_users']);
@@ -31,9 +44,11 @@ if ($_POST) {
         $prix = strip_tags($_POST['prix']);
         $date = strip_tags($_POST['date']);
         $lieu = strip_tags($_POST['lieu']);
+        $image = strip_tags($_FILES['image']['name']);
+
 
     // update
-    $sql = "UPDATE annonces SET id_users=:id_users, titre=:titre, description=:description, categorie=:categorie, prix=:prix, date=:date, lieu=:lieu WHERE id=:id";
+    $sql = "UPDATE annonces SET id_users=:id_users, titre=:titre, description=:description, categorie=:categorie, prix=:prix, date=:date, lieu=:lieu, image=:image WHERE id=:id";
 
     $query = $bdd->prepare($sql);
 
@@ -45,6 +60,8 @@ if ($_POST) {
         $query->bindValue(':prix', $prix);
         $query->bindValue(':date', $date);
         $query->bindValue(':lieu', $lieu);
+        $query->bindValue(':image', $image);
+        $photo=$image;
 
         $query->execute();
 
@@ -99,7 +116,9 @@ header("Location: index.php");
         <h2>Modifier une annonce</h2>
     </div>
 
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
+
+    <div class="photo_annonce"><img src="../uploads/<?=$projet['image']?>" alt=""></div>
 
         <input type="hidden" name="id_users" placeholder="id_users" value="<?php echo $projet['id_users']?>"><br>
      
@@ -115,6 +134,7 @@ header("Location: index.php");
         <input type="text" name="lieu" placeholder="Lieu" value="<?php echo $projet['lieu']?>"><br>
         <input type="number" name ="prix" placeholder="Prix" value="<?php echo $projet['prix']?>"><br>
         <textarea type="text" name ="description" placeholder="Description" id="describ"><?php echo $projet['description']?></textarea><br>
+        <input type="file" name="image" placeholder="file"><br><br>
         <!-- <input type="file" placeholder="Catégorie"><br><br> -->
         <input type="submit" value="Modifier" class="submit" onclick="return confirm('Voulez-vous modifer votre annonce?')">
 

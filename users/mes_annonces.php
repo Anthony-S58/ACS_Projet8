@@ -40,6 +40,9 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     <div class="categories">
         <h2>Mes Annonces</h2>
     </div>
+    <a href="add_annonce.php"><button id="ajouter">Ajouter une annonce</button></a>
+    <br><br>
+
 
     <hr>
 
@@ -47,7 +50,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
         foreach ($result as $projet) {
         ?>
 
-    <div class="annonces_annonces">
+    <div class="annonces">
         <div class="photo_annonce"><img src="../uploads/<?=$projet['image']?>" alt=""></div>
         <div class="descript">
             <h2><?= $projet['titre']?></h2><br>
@@ -65,7 +68,6 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     <?php
     }
     ?>
-    <a href="add_annonce.php"><button id="ajouter">Ajouter une annonce</button></a>
 <br><br><br><br><br>
     <footer>
     <div class="menu">
