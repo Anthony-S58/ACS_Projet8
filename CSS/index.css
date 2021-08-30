@@ -227,6 +227,15 @@ h1 {
         padding: 10px;
     }
 
+    #pagination{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+       font-size: 1.5em;
+       color: #f2efe9;
+   }
+
 /* FOOTER */
 footer .menu{
     height: 50px;

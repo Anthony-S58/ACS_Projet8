@@ -7,6 +7,20 @@ if(isset($_SESSION['admin'])){
 
 };
 
+// test
+$annoncesparpage = 10;
+$annoncestotalesreq = $bdd->query('SELECT id from annonces');
+$annoncestotales = $annoncestotalesreq->rowCount();
+$pagestotales = ceil($annoncestotales/$annoncesparpage);
+
+if(isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page'] > 0 AND $_GET['page'] <= $pagestotales){
+    $_GET['page'] = intval($_GET['page']);
+    $pagecourante = $_GET['page'];
+}else {
+    $pagecourante = 1;
+}
+
+$depart = ($pagecourante-1)*$annoncesparpage;
     ?>
 
 
@@ -86,7 +100,7 @@ if(isset($_SESSION['admin'])){
             
             if (isset($_GET['s'])){
                 $s= htmlspecialchars($_GET['s']);
-                $annonces = $bdd->query('SELECT * FROM annonces Where titre LIKE "%'.$s.'%" ORDER BY id DESC');
+                $annonces = $bdd->query('SELECT * FROM annonces Where titre LIKE "%'.$s.'%" ORDER BY id DESC ');
             
             
                 foreach ($annonces as $projet) {
@@ -107,7 +121,7 @@ if(isset($_SESSION['admin'])){
                 
                 <?php
             }}else{
-                $sql='SELECT * from annonces ORDER BY id DESC';
+                $sql='SELECT * from annonces ORDER BY id DESC LIMIT '.$depart.','.$annoncesparpage;
                 $query = $bdd->prepare($sql);
                 $query->execute(); 
                 $result = $query->fetchAll(PDO::FETCH_ASSOC); 
@@ -130,7 +144,22 @@ if(isset($_SESSION['admin'])){
             <?php
             }}
             ?>
-            </div>
+            
+        </div>
+        <div id="pagination">
+            <?php
+
+            for ($i=1;$i<=$pagestotales;$i++) {
+                if($i==$pagecourante){
+                    echo $i. ' ';
+                }else{
+                    
+                    echo '<a href="index.php?page='.$i.'">'.$i.'</a> &nbsp';
+                }
+            }
+
+            ?>
+        </div>
 
    <br><br><br><br>
 
