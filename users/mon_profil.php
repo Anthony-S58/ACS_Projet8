@@ -41,7 +41,7 @@
                     $query->execute(); 
                     $result = $query->fetch(PDO::FETCH_ASSOC); 
                     // afficher un message
-                    echo "<br>Bonjour ".$result['nom_users'].", vous êtes connectés";
+                    echo "<br>Bonjour ".$result['nom_users'].", vous êtes en ligne";
                 }
     ?>
 
