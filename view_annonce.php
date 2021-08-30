@@ -104,12 +104,12 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
         <form action="">
 
 
-                
+                <input type="text" placeholder="Votre pseudo" disabled="disabled" name="pseudo" value="<?=$result['nom_users']?>">
                 <input type="text" placeholder="Adresse mail" disabled="disabled" name="mail" value="<?=$result['mail']?>">
                 <input type="text" placeholder="Objet" name="objet">
                 <textarea type="text" placeholder="Message" id="describ" name="message"></textarea><br>
 
-                <input type="submit" value="Envoyer" id="contact_submit">
+                <input type="submit" value="Envoyer" id="contact_submit" name="mailform">
 
 
             </form>
