@@ -107,7 +107,7 @@ if(isset($_SESSION['admin'])){
                 
                 <?php
             }}else{
-                $sql='SELECT * from annonces';
+                $sql='SELECT * from annonces ORDER BY id DESC';
                 $query = $bdd->prepare($sql);
                 $query->execute(); 
                 $result = $query->fetchAll(PDO::FETCH_ASSOC); 

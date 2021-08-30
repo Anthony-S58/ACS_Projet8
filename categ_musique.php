@@ -5,7 +5,7 @@ session_start();
 
 require_once('bddconnect.php');
 
-$sql="SELECT * from annonces WHERE categorie='Musique'";
+$sql="SELECT * from annonces WHERE categorie='Musique' ORDER BY id DESC";
 $query = $bdd->prepare($sql);
 $query->execute(); 
 $result = $query->fetchAll(PDO::FETCH_ASSOC); 

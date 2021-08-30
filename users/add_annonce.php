@@ -16,7 +16,8 @@ if ($_POST) {
     && isset($_POST['prix']) && !empty($_POST['prix'])
     && isset($_POST['date']) && !empty($_POST['date'])
     && isset($_POST['lieu']) && !empty($_POST['lieu'])) {
-        if(isset($_FILES['image'])){
+       
+       if(isset($_FILES['image'])){
             $tmpName = $_FILES['image']['tmp_name'];
             $name = $_FILES['image']['name'];
 

@@ -49,6 +49,7 @@
         <h2>Mon Profil</h2>
     </div>
 <div id="profil_board">
+<img src="../IMG/userimg/<?=$result['image_users']?>" height="80px" width="80px">
     <hr>
     <div class="infos">
     <h3>Pseudo : <?=$result['nom_users']?></h3>
@@ -56,10 +57,6 @@
     <hr>
     <div class="infos">
     <h3>Adresse mail : <?=$result['mail']?></h3>
-    </div>
-    <hr>
-    <div class="infos">
-    <h3>Image de profil :<img src="../IMG/userimg/<?=$result['image_users']?>" height="80px" width="80px"></h3>
     </div>
     <hr>
     <div class="infos">

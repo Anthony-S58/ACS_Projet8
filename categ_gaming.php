@@ -3,7 +3,7 @@ session_start();
 
 require_once('bddconnect.php');
 
-$sql="SELECT * from annonces WHERE categorie='Gaming'";
+$sql="SELECT * from annonces WHERE categorie='Gaming' ORDER BY id DESC";
 $query = $bdd->prepare($sql);
 $query->execute(); 
 $result = $query->fetchAll(PDO::FETCH_ASSOC); 
