@@ -8,7 +8,7 @@ if(isset($_SESSION['admin'])){
 };
 
 
-$sql='SELECT * from annonces';
+$sql="SELECT * from annonces INNER JOIN users ON annonces.id_users=users.id_users WHERE users.id_users = $user";
 $query = $bdd->prepare($sql);
 $query->execute(); 
 $result = $query->fetchAll(PDO::FETCH_ASSOC); 

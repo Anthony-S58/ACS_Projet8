@@ -117,11 +117,11 @@ if(isset($_SESSION['admin'])){
                 
             <div class="cartes">
 
-                <div class="photo_annonce"><a href="view_annonce.php?id=<?= $projet['id']?>"><img src="uploads/<?=$projet['image']?>" width="auto" height="auto" alt=""></a></div>
+                <div class="photo_annonce"><a href="view_annonce.php?id=<?= $projet['id']?>"><img src="uploads/<?=$projet['image']?>" width="auto" height="auto" alt=""></div>
                 <div class="texte_annonce">
                     <h3><?= $projet['titre']?></h3>
                     <h4><?= $projet['prix']?> €</h4>
-                    <h5><?= $projet['lieu']?></h5>
+                    <h5><?= $projet['lieu']?></h5></a>
                 </div>
 
             </div>
