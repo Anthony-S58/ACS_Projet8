@@ -8,7 +8,7 @@ if(isset($_SESSION['admin'])){
 };
 
     ?>
-
+  
 
 
 
@@ -91,20 +91,30 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     </div>
 
     <hr>
+    <?php
+    if($_SESSION['admin'] !== ""){
+        $user = $_SESSION['admin'];
+        $test="SELECT * FROM users WHERE id_users=$user";
+        $query = $bdd->prepare($test);
+        $query->execute(); 
+        $result = $query->fetch(PDO::FETCH_ASSOC); 
+    }
+    ?>
     <div id="form_contact">
         <form action="">
 
 
                 
-                <input type="text" placeholder="Adresse mail">
-                <input type="text" placeholder="Objet">
-                <textarea type="text" placeholder="Message" id="describ"></textarea><br>
+                <input type="text" placeholder="Adresse mail" disabled="disabled" name="mail" value="<?=$result['mail']?>">
+                <input type="text" placeholder="Objet" name="objet">
+                <textarea type="text" placeholder="Message" id="describ" name="message"></textarea><br>
 
                 <input type="submit" value="Envoyer" id="contact_submit">
 
 
             </form>
         </div>
+
         <?php
    if(isset($_SESSION['admin'])){
    

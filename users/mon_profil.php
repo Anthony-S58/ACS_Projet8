@@ -1,6 +1,8 @@
 <?php
                 session_start();
                 require_once '../bddconnect.php';
+
+                
                
             ?>
 
@@ -44,7 +46,10 @@
                     echo "<br>Bonjour ".$result['nom_users'].", vous êtes en ligne";
                 }
     ?>
-
+    <?php
+$annoncestotalesreq = $bdd->query("SELECT * from annonces WHERE id_users=$user");
+$annoncestotales = $annoncestotalesreq->rowCount();
+?>
     <div class="categories">
         <h2>Mon Profil</h2>
     </div>
@@ -60,7 +65,7 @@
     </div>
     <hr>
     <div class="infos">
-    <h3>Nombre d'annonces :</h3>
+    <h3>Vous avez <?=$annoncestotales?> annonce(s) en ligne</h3>
     </div>
     <hr>
     <div class="infos">

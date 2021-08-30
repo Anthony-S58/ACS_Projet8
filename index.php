@@ -144,7 +144,6 @@ $depart = ($pagecourante-1)*$annoncesparpage;
             <?php
             }}
             ?>
-            
         </div>
         <div id="pagination">
             <?php
