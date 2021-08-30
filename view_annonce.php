@@ -36,7 +36,7 @@ if(isset($_SESSION['admin'])){
 $getid=$_GET['id'];
 
 
-$sql = "SELECT * FROM annonces WHERE id = $getid";
+$sql = "SELECT * FROM annonces INNER JOIN users ON annonces.id_users=users.id_users WHERE id = $getid";
 $query = $bdd->prepare($sql);
 $query->execute(); 
 $result = $query->fetchAll(PDO::FETCH_ASSOC); 
@@ -62,8 +62,8 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     <hr>
     <div class="userfav_view">
         <div class="user_view">
-            <img src="IMG/pasdimage.png" width="30px" height="30px" alt="">
-            <h3>TIMERS58</h3>
+            <img src="IMG/userimg/<?=$projet['image_users']?>" width="30px" height="30px" alt="">
+            <h3><?=$projet['nom_users']?></h3>
         </div>
         <div class="fav_view">
             <h3>Favoris</h3>

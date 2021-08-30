@@ -59,7 +59,7 @@
     </div>
     <hr>
     <div class="infos">
-    <h3>Image de profil :<img src="../IMG/pasdimage.png" height="80px" width="80px"></h3>
+    <h3>Image de profil :<img src="../IMG/userimg/<?=$result['image_users']?>" height="80px" width="80px"></h3>
     </div>
     <hr>
     <div class="infos">

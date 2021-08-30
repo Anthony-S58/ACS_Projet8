@@ -9,6 +9,8 @@ if ($_POST) {
     $mail= strip_tags($_POST ['mail']);
     $mot_de_passe= strip_tags($_POST ['mot_de_passe']);
     $check= strip_tags($_POST ['check-password']);
+    $image_users = strip_tags($_FILES['image_users']['name']);
+
 
     $check = $bdd->prepare('SELECT mail FROM users WHERE mail = ?');
     $check->execute(array($mail));
@@ -20,15 +22,23 @@ if ($_POST) {
         && isset($_POST['mail']) && !empty($_POST['mail'])
         && isset($_POST['mot_de_passe']) && !empty($_POST['mot_de_passe'])
         && ($_POST['mot_de_passe'] === $_POST['check-password'])){
+            if(isset($_FILES['image_users'])){
+                $tmpName = $_FILES['image_users']['tmp_name'];
+                $name = $_FILES['image_users']['name'];
+    
+                move_uploaded_file($tmpName, 'IMG/userimg/'.$name);
+            }
         
         $mot_de_passe = hash('sha256', $mot_de_passe);
         
-        $sql = "INSERT INTO users(nom_users, mail, mot_de_passe) VALUES  (:nom_users,:mail, :mot_de_passe)";
+        $sql = "INSERT INTO users(nom_users, mail, mot_de_passe, image_users) VALUES  (:nom_users,:mail, :mot_de_passe, :image_users)";
         $query = $bdd->prepare($sql);
 
         $query->bindValue(':nom_users', $nom_users);
         $query->bindValue(':mail', $mail);
         $query->bindValue(':mot_de_passe', $mot_de_passe);
+        $query->bindValue(':image_users', $image_users);
+
 
         $query->execute();
 
@@ -63,7 +73,7 @@ if ($_POST) {
         <h2>Inscription</h2>
     </div>
 
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
 
 
         <input type="text" name="nom_users" placeholder="Pseudo">
@@ -71,6 +81,8 @@ if ($_POST) {
         <input type="password" name="mot_de_passe" placeholder="Mot de passe" id="password">
         <input type="password" name="check-password" placeholder="Confirmez votre mot de passe" id="check-password"><br>
         <span id="message"></span><br>
+        <input type="file" name="image_users" placeholder="file"><br><br>
+
         <br>
         <input type="submit" value="S'inscrire" class="submit">
 
