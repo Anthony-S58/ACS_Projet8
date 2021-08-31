@@ -147,6 +147,10 @@ $depart = ($pagecourante-1)*$annoncesparpage;
         </div>
         <div class="pagination">
             <?php
+            if (isset($_GET['s'])){
+                "";
+            }else{
+
 
             for ($i=1;$i<=$pagestotales;$i++) {
                 if($i==$pagecourante){
@@ -156,7 +160,7 @@ $depart = ($pagecourante-1)*$annoncesparpage;
                     echo '<a href="index.php?page='.$i.'" id="page_no_select">'.$i.'</a></span> ';
                     // echo '<a href="index.php?page='.$i.'">'.$i.'</a> &nbsp';
                 }
-            }
+            }}
 
             ?>
         </div>

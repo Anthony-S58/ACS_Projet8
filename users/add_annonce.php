@@ -20,6 +20,9 @@ if ($_POST) {
        if(isset($_FILES['image'])){
             $tmpName = $_FILES['image']['tmp_name'];
             $name = $_FILES['image']['name'];
+            if(empty($name)){
+                $name = ('../IMG/pasdimage.png');
+            }
 
             move_uploaded_file($tmpName, '../uploads/'.$name);
         }
@@ -43,7 +46,7 @@ if ($_POST) {
         $query->bindValue(':prix', $prix);
         $query->bindValue(':date', $date);
         $query->bindValue(':lieu', $lieu);
-        $query->bindValue(':image', $image);
+        $query->bindValue(':image', $name);
         $photo=$image;
 
         

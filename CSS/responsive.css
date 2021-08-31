@@ -37,6 +37,10 @@
         width:100%;
         height: auto;
     }
+    .construct img{
+        height:320px;
+        width:320px;
+    }
     }
     
 @media screen and (max-width: 400px) {
@@ -51,5 +55,6 @@
     height: 60px;
 
 }
+
 
 }
