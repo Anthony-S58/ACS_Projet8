@@ -227,7 +227,7 @@ h1 {
         padding: 10px;
     }
 
-    #pagination{
+    /* .pagination{
         display: flex;
         justify-content: center;
         text-align: center;
@@ -235,6 +235,43 @@ h1 {
        font-size: 1.5em;
        color: #f2efe9;
    }
+   .pagination a:hover{
+       background-color:#46237a;
+       color:white;
+   } */
+   #span_pagination
+{
+    position: relative;
+    text-align: center;
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 25px;
+}
+ 
+#page_select
+{
+    color: black;
+    position: relative;
+    text-align: center;
+    display: inline-block;
+    font-size: 25px;
+
+}
+ 
+#page_no_select
+{
+    text-decoration: none;
+    color: #46237a;
+    position: relative;
+    text-align: center;
+    font-size: 25px;
+    display: inline-block;
+}
+#page_no_select:hover{
+    background-color:grey;
+    color:white;
+}
+   
 
 /* FOOTER */
 footer .menu{

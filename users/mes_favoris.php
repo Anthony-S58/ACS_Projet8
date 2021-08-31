@@ -23,8 +23,9 @@
     </div>
 
     <hr>
+    <div class="construct"><img src="../IMG/UnderConstruction.png"></div>    
 
-    <div class="annonces">
+    <!-- <div class="annonces">
         <div class="photo_annonce"><img src="../IMG/Gaming.jpg" alt=""></div>
         <div class="descript">
             <h2>Manette Xbox</h2><br>
@@ -38,7 +39,7 @@
     </div>
 
     <hr>
-   
+    -->
     <footer>
     <div class="menu">
             <div class="accueil_footer">
